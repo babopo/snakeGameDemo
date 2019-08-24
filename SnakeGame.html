@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre></pre>
+</body>
+<script src="./snake.js"></script>
+<script>
+    let snakeGame = new snake(15, 15)
+    snakeGame.generateHead()
+    snakeGame.generateApple()
+    window.addEventListener('keydown', e => {
+        switch(e.key) {
+            case 'ArrowUp':
+                snakeGame.turnUp()
+                break
+            case 'ArrowDown':
+                snakeGame.turnDown()
+                break
+            case 'ArrowLeft':
+                snakeGame.turnLeft()
+                break
+            case 'ArrowRight':
+                snakeGame.turnRight()
+        }
+    })
+    let pre = document.querySelector('pre')
+    //pre标签以字符串原来的格式展示
+    pre.textContent = snakeGame.toString()
+    let timeId = setInterval(() => {
+        try {
+            snakeGame.nextStep()
+        } catch(e) {
+            clearInterval(timeId)
+            //接住错误并清除定时器
+        }
+        pre.textContent = snakeGame.toString()
+    }, 400);
+
+
+</script>
+</html>
