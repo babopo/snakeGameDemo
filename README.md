@@ -31,4 +31,5 @@ When the game fails , it will throw an error, using `try - catch` to deal with i
 ### Demos 
 
 - there is a simple string edition of this demo, using arrows to control directions.
+  - [String edition](https://babopo.github.io/snakeGameDemo/SnakeGame.html)
 
